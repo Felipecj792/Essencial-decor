@@ -8,8 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 // ─── Serve os arquivos do site ────────────────────────────────────────────────
-app.use(express.static(path.join(__dirname)));
-
+app.use(express.static(path.join(__dirname, '.')));
+app.use('/style.css', express.static(path.join(__dirname, 'style.css')));
+app.use('/script.js', express.static(path.join(__dirname, 'script.js')));
 // ─── Credenciais via variável de ambiente (configurada no Railway) ─────────────
 const client = new MercadoPagoConfig({
     accessToken: process.env.MP_ACCESS_TOKEN,
