@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Essential Home</title>
+<title>Essencial Decor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -11,8 +11,17 @@
 </head>
 <body>
 
+<nav class="navbar">
+    <div class="nav-logo">ESSENCIAL DECOR</div>
+    <ul class="nav-menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
+
 <header class="hero">
-    <h1>ESSENTIAL HOME</h1>
+    <h1>ESSENCIAL DECOR</h1>
     <div class="divider"></div>
     <p>Objetos minimalistas para ambientes elegantes, organizados e atemporais.</p>
 </header>
@@ -23,31 +32,319 @@
     <div class="product-image">
         <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1200" alt="Luminária Nordic">
     </div>
-    <div class="product-info">
-        <span class="category">ILUMINAÇÃO</span>
-        <h2>Luminária Nordic</h2>
-        <p>Inspirada no design escandinavo, perfeita para ambientes modernos.</p>
-        <button class="btn-wa" onclick="enviarMensagem('Luminária Nordic')">Solicitar</button>
+</section>
+
+<section class="grid-products" id="produtos">
+
+    <!-- VASO STONE -->
+    <div class="card">
+        <h3 onclick="toggleProduto('vaso')">Vaso Stone</h3>
+        <p>Cerâmica premium com acabamento fosco.</p>
+        <div class="product-price">R$ 119,90</div>
+        <div class="produto-expandido" id="vaso">
+            <img src="vaso-stone.jpg" alt="Vaso Stone">
+            <div class="produto-detalhes">
+                <p class="produto-desc-longa">Vaso em cerâmica premium com acabamento fosco. Ideal para plantas pequenas ou como objeto decorativo. Disponível em branco off-white.</p>
+                <ul class="produto-specs">
+                    <li>Material: Cerâmica premium</li>
+                    <li>Acabamento: Fosco</li>
+                    <li>Altura: 18 cm · Ø base: 9 cm</li>
+                    <li>Cor: Branco off-white</li>
+                </ul>
+            </div>
+            <div class="compra-container">
+                <div class="quantidade-row">
+                    <span class="qtd-label">Quantidade</span>
+                    <div class="quantidade-ctrl">
+                        <button class="btn-qtd" onclick="alterarQtd('vaso', -1)">−</button>
+                        <span class="qtd-valor" id="qtd-vaso">1</span>
+                        <button class="btn-qtd" onclick="alterarQtd('vaso', 1)">+</button>
+                    </div>
+                </div>
+                <div class="subtotal-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-valor" id="subtotal-vaso">R$ 119,90</span>
+                </div>
+            </div>
+            <div class="frete-container">
+                <input type="text" placeholder="CEP para calcular frete" maxlength="9" class="input-frete" id="cep-vaso">
+                <button class="btn-frete" onclick="calcularFrete('cep-vaso', 'resultado-vaso')">Calcular</button>
+                <div class="frete-resultado" id="resultado-vaso"></div>
+                <div class="endereco-campos" id="endereco-vaso" style="display:none;">
+                    <input type="text" class="input-endereco" id="rua-vaso" placeholder="Rua" readonly>
+                    <div class="endereco-linha-dupla">
+                        <input type="text" class="input-endereco input-numero" id="numero-vaso" placeholder="Número *" maxlength="10">
+                        <input type="text" class="input-endereco input-complemento" id="complemento-vaso" placeholder="Complemento">
+                    </div>
+                    <input type="text" class="input-endereco" id="bairro-vaso" placeholder="Bairro" readonly>
+                </div>
+            </div>
+            <button class="btn-produto" onclick="finalizarCompra('Vaso Stone', 119.90, 'vaso')">
+                <span>Comprar pelo WhatsApp</span>
+            </button>
+        </div>
     </div>
+
+    <!-- VELA AROMÁTICA -->
+    <div class="card">
+        <h3 onclick="toggleProduto('vela')">Vela Aromática</h3>
+        <p>Fragrâncias suaves para relaxamento.</p>
+        <div class="product-price">R$ 59,90</div>
+        <div class="produto-expandido" id="vela">
+            <img src="vela-aromatica.jpg" alt="Vela Aromática">
+            <div class="produto-detalhes">
+                <p class="produto-desc-longa">Vela artesanal com cera de soja e fragrâncias naturais. Queima limpa por até 40 horas. Perfeita para criar ambientes aconchegantes.</p>
+                <ul class="produto-specs">
+                    <li>Material: Cera de soja 100%</li>
+                    <li>Fragrância: Lavanda & Baunilha</li>
+                    <li>Duração: até 40 horas</li>
+                    <li>Peso líquido: 180 g</li>
+                </ul>
+            </div>
+            <div class="compra-container">
+                <div class="quantidade-row">
+                    <span class="qtd-label">Quantidade</span>
+                    <div class="quantidade-ctrl">
+                        <button class="btn-qtd" onclick="alterarQtd('vela', -1)">−</button>
+                        <span class="qtd-valor" id="qtd-vela">1</span>
+                        <button class="btn-qtd" onclick="alterarQtd('vela', 1)">+</button>
+                    </div>
+                </div>
+                <div class="subtotal-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-valor" id="subtotal-vela">R$ 59,90</span>
+                </div>
+            </div>
+            <div class="frete-container">
+                <input type="text" placeholder="CEP para calcular frete" maxlength="9" class="input-frete" id="cep-vela">
+                <button class="btn-frete" onclick="calcularFrete('cep-vela', 'resultado-vela')">Calcular</button>
+                <div class="frete-resultado" id="resultado-vela"></div>
+                <div class="endereco-campos" id="endereco-vela" style="display:none;">
+                    <input type="text" class="input-endereco" id="rua-vela" placeholder="Rua" readonly>
+                    <div class="endereco-linha-dupla">
+                        <input type="text" class="input-endereco input-numero" id="numero-vela" placeholder="Número *" maxlength="10">
+                        <input type="text" class="input-endereco input-complemento" id="complemento-vela" placeholder="Complemento">
+                    </div>
+                    <input type="text" class="input-endereco" id="bairro-vela" placeholder="Bairro" readonly>
+                </div>
+            </div>
+            <button class="btn-produto" onclick="finalizarCompra('Vela Aromática', 59.90, 'vela')">
+                <span>Comprar pelo WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- DIFUSOR MINIMAL -->
+    <div class="card">
+        <h3 onclick="toggleProduto('difusor')">Difusor Minimal</h3>
+        <p>Design discreto e elegante.</p>
+        <div class="product-price">R$ 89,90</div>
+        <div class="produto-expandido" id="difusor">
+            <img src="difusor-minimal.jpg" alt="Difusor Minimal">
+            <div class="produto-detalhes">
+                <p class="produto-desc-longa">Difusor de ambiente com varetas de rattan. Aromatiza até 30 m² por 30 a 60 dias. Frasco em vidro fosco com design minimalista.</p>
+                <ul class="produto-specs">
+                    <li>Volume: 200 ml</li>
+                    <li>Varetas: Rattan natural (8 un.)</li>
+                    <li>Cobertura: até 30 m²</li>
+                    <li>Duração: 30–60 dias</li>
+                </ul>
+            </div>
+            <div class="compra-container">
+                <div class="quantidade-row">
+                    <span class="qtd-label">Quantidade</span>
+                    <div class="quantidade-ctrl">
+                        <button class="btn-qtd" onclick="alterarQtd('difusor', -1)">−</button>
+                        <span class="qtd-valor" id="qtd-difusor">1</span>
+                        <button class="btn-qtd" onclick="alterarQtd('difusor', 1)">+</button>
+                    </div>
+                </div>
+                <div class="subtotal-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-valor" id="subtotal-difusor">R$ 89,90</span>
+                </div>
+            </div>
+            <div class="frete-container">
+                <input type="text" placeholder="CEP para calcular frete" maxlength="9" class="input-frete" id="cep-difusor">
+                <button class="btn-frete" onclick="calcularFrete('cep-difusor', 'resultado-difusor')">Calcular</button>
+                <div class="frete-resultado" id="resultado-difusor"></div>
+                <div class="endereco-campos" id="endereco-difusor" style="display:none;">
+                    <input type="text" class="input-endereco" id="rua-difusor" placeholder="Rua" readonly>
+                    <div class="endereco-linha-dupla">
+                        <input type="text" class="input-endereco input-numero" id="numero-difusor" placeholder="Número *" maxlength="10">
+                        <input type="text" class="input-endereco input-complemento" id="complemento-difusor" placeholder="Complemento">
+                    </div>
+                    <input type="text" class="input-endereco" id="bairro-difusor" placeholder="Bairro" readonly>
+                </div>
+            </div>
+            <button class="btn-produto" onclick="finalizarCompra('Difusor Minimal', 89.90, 'difusor')">
+                <span>Comprar pelo WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ORGANIZADOR DESK -->
+    <div class="card">
+        <h3 onclick="toggleProduto('organizador')">Organizador Desk</h3>
+        <p>Mais foco e menos bagunça.</p>
+        <div class="product-price">R$ 149,90</div>
+        <div class="produto-expandido" id="organizador">
+            <img src="organizador-desk.jpg" alt="Organizador Desk">
+            <div class="produto-detalhes">
+                <p class="produto-desc-longa">Organizador de mesa em concreto com compartimentos para canetas, clipes e celular. Peça única, moldada à mão, com acabamento lixado.</p>
+                <ul class="produto-specs">
+                    <li>Material: Concreto artesanal</li>
+                    <li>Compartimentos: 3</li>
+                    <li>Dimensões: 20 × 10 × 8 cm</li>
+                    <li>Cor: Cinza natural</li>
+                </ul>
+            </div>
+            <div class="compra-container">
+                <div class="quantidade-row">
+                    <span class="qtd-label">Quantidade</span>
+                    <div class="quantidade-ctrl">
+                        <button class="btn-qtd" onclick="alterarQtd('organizador', -1)">−</button>
+                        <span class="qtd-valor" id="qtd-organizador">1</span>
+                        <button class="btn-qtd" onclick="alterarQtd('organizador', 1)">+</button>
+                    </div>
+                </div>
+                <div class="subtotal-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-valor" id="subtotal-organizador">R$ 149,90</span>
+                </div>
+            </div>
+            <div class="frete-container">
+                <input type="text" placeholder="CEP para calcular frete" maxlength="9" class="input-frete" id="cep-organizador">
+                <button class="btn-frete" onclick="calcularFrete('cep-organizador', 'resultado-organizador')">Calcular</button>
+                <div class="frete-resultado" id="resultado-organizador"></div>
+                <div class="endereco-campos" id="endereco-organizador" style="display:none;">
+                    <input type="text" class="input-endereco" id="rua-organizador" placeholder="Rua" readonly>
+                    <div class="endereco-linha-dupla">
+                        <input type="text" class="input-endereco input-numero" id="numero-organizador" placeholder="Número *" maxlength="10">
+                        <input type="text" class="input-endereco input-complemento" id="complemento-organizador" placeholder="Complemento">
+                    </div>
+                    <input type="text" class="input-endereco" id="bairro-organizador" placeholder="Bairro" readonly>
+                </div>
+            </div>
+            <button class="btn-produto" onclick="finalizarCompra('Organizador Desk', 149.90, 'organizador')">
+                <span>Comprar pelo WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- BANDEJA STONE -->
+    <div class="card">
+        <h3 onclick="toggleProduto('bandeja')">Bandeja Stone</h3>
+        <p>Organização com estética refinada.</p>
+        <div class="product-price">R$ 79,90</div>
+        <div class="produto-expandido" id="bandeja">
+            <img src="bandeja-stone.jpg" alt="Bandeja Stone">
+            <div class="produto-detalhes">
+                <p class="produto-desc-longa">Bandeja em pedra reconstituída com bordas suaves. Versátil para banheiro, quarto ou sala de estar. Resistente à água e fácil de limpar.</p>
+                <ul class="produto-specs">
+                    <li>Material: Pedra reconstituída</li>
+                    <li>Dimensões: 25 × 15 × 2 cm</li>
+                    <li>Resistente à água</li>
+                    <li>Cor: Bege pedra</li>
+                </ul>
+            </div>
+            <div class="compra-container">
+                <div class="quantidade-row">
+                    <span class="qtd-label">Quantidade</span>
+                    <div class="quantidade-ctrl">
+                        <button class="btn-qtd" onclick="alterarQtd('bandeja', -1)">−</button>
+                        <span class="qtd-valor" id="qtd-bandeja">1</span>
+                        <button class="btn-qtd" onclick="alterarQtd('bandeja', 1)">+</button>
+                    </div>
+                </div>
+                <div class="subtotal-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-valor" id="subtotal-bandeja">R$ 79,90</span>
+                </div>
+            </div>
+            <div class="frete-container">
+                <input type="text" placeholder="CEP para calcular frete" maxlength="9" class="input-frete" id="cep-bandeja">
+                <button class="btn-frete" onclick="calcularFrete('cep-bandeja', 'resultado-bandeja')">Calcular</button>
+                <div class="frete-resultado" id="resultado-bandeja"></div>
+                <div class="endereco-campos" id="endereco-bandeja" style="display:none;">
+                    <input type="text" class="input-endereco" id="rua-bandeja" placeholder="Rua" readonly>
+                    <div class="endereco-linha-dupla">
+                        <input type="text" class="input-endereco input-numero" id="numero-bandeja" placeholder="Número *" maxlength="10">
+                        <input type="text" class="input-endereco input-complemento" id="complemento-bandeja" placeholder="Complemento">
+                    </div>
+                    <input type="text" class="input-endereco" id="bairro-bandeja" placeholder="Bairro" readonly>
+                </div>
+            </div>
+            <button class="btn-produto" onclick="finalizarCompra('Bandeja Stone', 79.90, 'bandeja')">
+                <span>Comprar pelo WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- PORTA LIVROS -->
+    <div class="card">
+        <h3 onclick="toggleProduto('livros')">Porta Livros</h3>
+        <p>Detalhe sofisticado para estantes.</p>
+        <div class="product-price">R$ 69,90</div>
+        <div class="produto-expandido" id="livros">
+            <img src="porta-livros.jpg" alt="Porta Livros">
+            <div class="produto-detalhes">
+                <p class="produto-desc-longa">Par de aparadores de livros em ferro com pintura epóxi preta. Design geométrico minimalista que valoriza qualquer estante ou mesa de trabalho.</p>
+                <ul class="produto-specs">
+                    <li>Material: Ferro com pintura epóxi</li>
+                    <li>Vendido em par</li>
+                    <li>Altura: 16 cm</li>
+                    <li>Cor: Preto fosco</li>
+                </ul>
+            </div>
+            <div class="compra-container">
+                <div class="quantidade-row">
+                    <span class="qtd-label">Quantidade</span>
+                    <div class="quantidade-ctrl">
+                        <button class="btn-qtd" onclick="alterarQtd('livros', -1)">−</button>
+                        <span class="qtd-valor" id="qtd-livros">1</span>
+                        <button class="btn-qtd" onclick="alterarQtd('livros', 1)">+</button>
+                    </div>
+                </div>
+                <div class="subtotal-row">
+                    <span>Subtotal</span>
+                    <span class="subtotal-valor" id="subtotal-livros">R$ 69,90</span>
+                </div>
+            </div>
+            <div class="frete-container">
+                <input type="text" placeholder="CEP para calcular frete" maxlength="9" class="input-frete" id="cep-livros">
+                <button class="btn-frete" onclick="calcularFrete('cep-livros', 'resultado-livros')">Calcular</button>
+                <div class="frete-resultado" id="resultado-livros"></div>
+                <div class="endereco-campos" id="endereco-livros" style="display:none;">
+                    <input type="text" class="input-endereco" id="rua-livros" placeholder="Rua" readonly>
+                    <div class="endereco-linha-dupla">
+                        <input type="text" class="input-endereco input-numero" id="numero-livros" placeholder="Número *" maxlength="10">
+                        <input type="text" class="input-endereco input-complemento" id="complemento-livros" placeholder="Complemento">
+                    </div>
+                    <input type="text" class="input-endereco" id="bairro-livros" placeholder="Bairro" readonly>
+                </div>
+            </div>
+            <button class="btn-produto" onclick="finalizarCompra('Porta Livros', 69.90, 'livros')">
+                <span>Comprar pelo WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
 </section>
 
-<section class="grid-products">
-    <div class="card"><h3>Vaso Stone</h3><p>Cerâmica premium com acabamento fosco.</p></div>
-    <div class="card"><h3>Vela Aromática</h3><p>Fragrâncias suaves para relaxamento.</p></div>
-    <div class="card"><h3>Difusor Minimal</h3><p>Design discreto e elegante.</p></div>
-    <div class="card"><h3>Organizador Desk</h3><p>Mais foco e menos bagunça.</p></div>
-    <div class="card"><h3>Bandeja Stone</h3><p>Organização com estética refinada.</p></div>
-    <div class="card"><h3>Porta Livros</h3><p>Detalhe sofisticado para estantes.</p></div>
-</section>
-
-<footer class="contact-section">
+<footer class="contact-section" id="contato">
     <h2>Gostou de algum item?</h2>
     <p>Entre em contato pelo WhatsApp.</p>
     <button class="btn-final" onclick="enviarMensagem('Interesse Geral')">WhatsApp</button>
+    <div class="store-address">
+        <p>© 2026 Essencial Decor. Todos os direitos reservados.</p>
+        <p>Avenida das Américas, 4200 - Barra da Tijuca, Rio de Janeiro - RJ</p>
+    </div>
 </footer>
 
 </main>
 
 <script src="script.js"></script>
 </body>
-</html>
+        </html>
+        
